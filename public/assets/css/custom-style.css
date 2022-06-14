@@ -1,0 +1,36 @@
+.removeimage-container {
+    position: relative;
+}
+
+#removeimage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+h2.jq-toast-heading {
+    font-family: 'Poppins';
+    margin: 0;
+    margin-left: 10px;
+}
+
+.jq-toast-wrap {
+    width: 300px;
+}
+
+span.close-jq-toast-single {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+div#items-datatable_length {
+    margin-right: 20px;
+}

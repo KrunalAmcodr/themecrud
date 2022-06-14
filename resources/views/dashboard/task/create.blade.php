@@ -114,28 +114,5 @@
     <!-- Date Picker Plugin JavaScript -->
     <script src="{{ asset('plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('plugins/bower_components/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jasny-bootstrap.js') }}"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            if ($(".datepicker-taskdate").length > 0) {
-                $('.datepicker-taskdate').datepicker({
-                    autoclose: true,
-                    todayHighlight: true
-                });
-            }
-            if ($("#description").length > 0) {
-                tinymce.init({
-                    selector: "textarea#description",
-                    theme: "modern",
-                    height: 300,
-                    plugins: [
-                        "advlist autolink link lists hr anchor",
-                        "searchreplace wordcount fullscreen insertdatetime",
-                        "save directionality paste"
-                    ],
-                    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
-                });
-            }
-        })
-    </script>
+    <script src="{{ asset('assets/js/main-custom.js') }}"></script>
 @endpush

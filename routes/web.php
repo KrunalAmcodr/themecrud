@@ -23,5 +23,8 @@ Route::prefix('admin')->middleware('auth')->namespace('Dashboard')->group(functi
     Route::resource('post', 'PostController');
     Route::resource('task', 'TaskController');
     Route::get('/item', 'ItemController@index')->name('item');
+    Route::post('/item/create', 'ItemController@createorupdate')->name('item.create');
+    Route::post('/item/update', 'ItemController@createorupdate')->name('item.update');
+    Route::delete('/item/delete', 'ItemController@destroy')->name('item.delete');
 });
 

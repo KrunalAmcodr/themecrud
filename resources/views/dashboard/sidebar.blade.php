@@ -39,11 +39,11 @@
                     <span class="hide-menu">{{ __('Items Manager') }} </span>
                 </a>
             </li>
-            <li class="{{ request()->is('admin/task') || request()->is('admin/task/create') ? 'active' : '' }}">
-                <a href="javascript:void(0);" class="waves-effect {{ request()->is('admin/task') || request()->is('admin/task/create') ? 'active' : '' }}"><i
+            <li class="{{ request()->routeIs('task*') ? 'active' : '' }}">
+                <a href="javascript:void(0);" class="waves-effect {{ request()->routeIs('task*') ? 'active' : '' }}"><i
                         class="linea-icon linea-basic fa fa-list-alt text-danger"></i> <span
                         class="hide-menu text-danger"> {{ __('Tasks') }} <span class="fa arrow"></span> <span
-                            class="label label-rouded label-custom pull-right">02</span></span></a>
+                            class="label label-rouded label-custom pull-right">{{ (\App\Task::all()->count() >= 10) ? \App\Task::all()->count() : '0'.\App\Task::all()->count() }}</span></span></a>
                 <ul class="nav nav-second-level">
                     <li> <a href="{{ route('task.index') }}" class="{{ request()->is('admin/task') ? 'active' : '' }}">{{ __('All Tasks') }}</a> </li>
                     <li> <a href="{{ route('task.create') }}" class="{{ request()->is('admin/task/create') ? 'active' : '' }}">{{ __('Add New') }}</a> </li>

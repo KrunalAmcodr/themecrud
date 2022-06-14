@@ -23,6 +23,7 @@
     <link href="{{ asset('plugins/bower_components/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
     <!-- animation CSS -->
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
+     @stack('extrastyle')
     <!-- Custom CSS -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <!-- color CSS -->
@@ -34,7 +35,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-    @stack('extrastyle')
+   
 </head>
 
 <body class="fix-sidebar fix-header">

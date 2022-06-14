@@ -9,12 +9,13 @@
     <!--row -->
     <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h4 class="page-title">View Post</h4>
+            <h4 class="page-title">View Task</h4>
         </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
             <ol class="breadcrumb">
                 <li><a href="{{ route('admin') }}">Dashboard</a></li>
-                <li class="active">View Post</li>
+                <li><a href="{{ route('task.index') }}">All Task</a></li>
+                <li class="active">View Task</li>
             </ol>
         </div>
         <!-- /.col-lg-12 -->
@@ -28,7 +29,7 @@
                     <div class="pull-right">
                         <a href="{{ route('task.edit', $task->id) }}" class="text-white m-1 mt-0"><i
                                 class="ti-pencil-alt"></i></a>
-                        <a href="javascript:void(0)" id="delete-task-btn" class="text-white m-1 mt-0"
+                        <a href="javascript:void(0)" id="delete-taskfromshow-btn" class="text-white m-1 mt-0"
                             data-id="{{ $task->id }}"><i class="ti-trash"></i></a>
                     </div>
                 </div>
@@ -51,46 +52,5 @@
 @push('extrascript')
     <!-- Sweet-Alert  -->
     <script src="{{ asset('plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(document).on('click', '#delete-task-btn', function(e) {
-                e.preventDefault();
-                var trbutton = $(this);
-                let id = $(this).data('id');
-                var token = $("meta[name='csrf-token']").attr("content");
-
-                swal({
-                        title: "Are you sure?",
-                        text: "You will not be able to recover this task data!",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes, delete it!",
-                        closeOnConfirm: false
-                    },
-                    function() {
-                        trbutton.closest('tr').remove();
-                        $.ajax({
-                            type: "DELETE",
-                            url: "/admin/task/" + id,
-                            data: {
-                                "id": id,
-                                "_token": token,
-                            },
-                            success: function(data) {
-                                swal("Deleted!", data.success,
-                                    "success");
-                                if ($('#items-table tbody tr').length == false) {
-                                    $('#items-table').remove();
-                                    $('.table-container-ctm').append(
-                                        '<div class="alert alert-warning">Task not found.</div>'
-                                        )
-                                }
-                                window.location.href = "{{ route('task.index') }}";
-                            }
-                        });
-                    });
-            })
-        });
-    </script>
+    <script src="{{ asset('assets/js/main-custom.js') }}"></script>
 @endpush

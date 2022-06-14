@@ -4,17 +4,7 @@
     <!-- Date picker plugins css -->
     <link href="{{ asset('plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css') }}"
         rel="stylesheet" type="text/css" />
-    <style type="text/css">
-        .removeimage-container{
-            position: relative;
-        }
-        #removeimage {
-            position: absolute;
-            top: 0;
-            right: 0;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('assets/css/custom-style.css')}}" type="text/css">
 @endpush
 
 @section('content')
@@ -141,34 +131,5 @@
     <!-- Date Picker Plugin JavaScript -->
     <script src="{{ asset('plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('plugins/bower_components/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jasny-bootstrap.js') }}"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            if ($(".datepicker-taskdate").length > 0) {
-                $('.datepicker-taskdate').datepicker({
-                    autoclose: true,
-                    todayHighlight: true
-                });
-            }
-            if ($("#description").length > 0) {
-                tinymce.init({
-                    selector: "textarea#description",
-                    theme: "modern",
-                    height: 300,
-                    plugins: [
-                        "advlist autolink link lists hr anchor",
-                        "searchreplace wordcount fullscreen insertdatetime",
-                        "save directionality paste"
-                    ],
-                    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
-                });
-            }
-            $(document).on('click', '#removeimage', function() {
-                $(this).parent().remove();
-                if ($.trim($(".removeimage-boxes").html())==''){
-                    $('.images-selected').hide();
-                }
-            })
-        })
-    </script>
+    <script src="{{ asset('assets/js/main-custom.js') }}"></script>
 @endpush
